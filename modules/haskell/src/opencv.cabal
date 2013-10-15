@@ -16,7 +16,10 @@ source-repository head
 
 library
     extra-libraries:        opencv_c
-    cc-options:             -fpermissive
+    if os(linux)
+      cc-options:           -fpermissive -std=c++11
+    else
+      cc-options:           -fpermissive
     ghc-options:            -pgml g++
     exposed-modules:        OpenCV
     other-modules:          OpenCV.Types
